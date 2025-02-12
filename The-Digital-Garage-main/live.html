@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="live.css"/>
+    <script src="http://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div class="togglearea">
+        <label for="toggle">
+            <span class="i"></span>
+            <span class="i"></span>
+            <span class="i"></span>
+        </label>
+       </div>
+      
+         <input type="checkbox"id="toggle">
+        <div id="nav">
+            <label for=""class="menu-btn">
+                <i class =fas fa -bars"></i>
+            </label> 
+            <div id ="nav1">
+                <a id="a1" href="index.html"><img class="sr"
+                        src="https://lh3.googleusercontent.com/kvtXWUZ756KishzmjWDgAf0AW77QeBSuLbUXDQidstlS2h63BSRrlgm4bU97NPjdF5skHZFKQufqTqGt1UbTO8VV0OB7SqXAz7qCng=-rw">
+                        </a>
+                        
+                    <a class="br" class="a1" href="online.html">Online Courses</a>
+                    <a class="br"class="a1" href="">Certification</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">More</button>
+                        <div class="dropdown-content">
+                            <a class="a2" href="./live.html">Live Training</a>
+                            <a class="a2" href="">Remote Working</a>
+                            <a class="a2" href="./task.html">Tools and Rescourses</a>
+                            <a class="a2" href="">Help& FAQs</a>
+                            <a class="a2" href="./feedback.html">Feedback</a>
+                        </div>
+                    </div>
+    
+            </div>
+            <div id="nav2">
+                <a href="sign.html" id="a">Sign in</a>
+                <button id="btn">Register</button>
+            </div>
+        </div>
+        </div>
+        </div>
+    
+    <div id="h1">
+        <h1>Free live training</h1>
+        <p>Get started and access our free live webinar training designed to help you develop new skills. What will you learn today?</p>
+    </div>
+    <select id="filter">
+        <option value=""></option>
+        <option value="London">London</option>
+        <option value="Student">Student</option>
+      </select>
+   <div id="container">
+
+   </div>
+   
+   <div id="src">
+    <div id="src-img"><img
+            src="https://lh3.googleusercontent.com/7NabP8N3VdnHYt17iVcUvF_Hr2lFg-ayg1YnYIrvtWCtt-RtrnwVUzLZRUT3DSg3IkZHGqEte1v-_E590aB_AC0uCA-xthGO0d1YAA=-rw">
+    </div>
+    <div id="flex9">
+        <span id="privacy">privacy and services</span>
+        <span id="pri">
+            <select>
+                <option>romania</option>
+                <option>newyork</option>
+                <option>europe</option>
+                <option>turkey</option>
+                <option>United kingdom</option>
+                <option>portugal</option>
+                <option>netherland</option>
+                <option>malta</option>
+                <option>meena</option>
+            </select>
+        </span>
+    </div>
+</div>
+<hr class="i">
+<div>
+    <div id="flex7">
+
+        <span><img
+                src="https://lh3.googleusercontent.com/sw4rOkreSopt2DcXlOCH9HPwHm7pPgeBsO8DFqWnnVPifC4473ztUcLCT49kDnDj5c-ClaRCOQKmBvbrzqICFq7yNgcqq8-byBV0aw=-rw"
+                class="img-fix10"></span>
+        <span><img
+                src="https://lh3.googleusercontent.com/O73TcAUC463DfCnA87ap5gw7uWPW2R6owA8p-jcmHYJuysd2BVT_W-1PzUdxk_kbzjQ-OHuTt4W1i3N4hi_KtCkBifUtpZFPlz4R=-rw"
+                class=img-fix10></span>
+        <span><img
+                src="https://lh3.googleusercontent.com/2PFoqNpZ5xu9JK1u_CRR0aiYqGb0K6cOKkzmS2Ux0rucddJgNeMwsniGFMzQWopCdNK9rBzq73N0188sAtK_UFpgUHPPgz2XyDG5=-rw"
+                class=img-fix10></span>
+    </div>
+</div>
+
+</body>
+
+</html>
+<script src="./live.js"></script>
+<script>
+ let livePage=JSON.parse(localStorage.getItem("meData"))||[]
+ console.log(liveData)
+      
+ document.getElementById("filter").addEventListener("change",myFun)
+ display(livePage)
+  function myFun(){
+    var selected=document.getElementById("filter").value;
+    if(selected.value===" "){
+      display(livePage)
+     }
+   else{
+    var filter=livePage.filter(function(ele,index){
+      return ele.p===selected||ele.p2===selected||ele.p1===selected
+  });
+  display(filter)
+}
+ 
+  }
+
+ function display(livePage){
+    document.querySelector("#container").innerHTML="";
+ livePage.forEach(function(ele,index){
+  var di =document.createElement("div");
+  let btn1=document.createElement("button");
+  btn1.innerText=ele.btn;
+  btn1.setAttribute("id","button")
+  let na=document.createElement("h2");
+  na.innerText=ele.h;
+  na.setAttribute("id","h")
+  let pr=document.createElement("p");
+  pr.innerText=ele. p;
+  pr.setAttribute("id","p")
+  let para=document.createElement("p");
+  para.innerText=ele. p1;
+  para.setAttribute("id","p1")
+  let para1=document.createElement("p");
+ para1.innerText=ele. p2;
+ para1.setAttribute("id","p2")
+  di.append(btn1,na,pr,para,para1)
+  document.querySelector("#container").append(di)
+})
+ };
+ display(livePage)
+    
+</script>
